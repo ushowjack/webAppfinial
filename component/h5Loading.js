@@ -1,5 +1,5 @@
 var H5Loading = function (image) {
-	var count = 0;
+	var loaded = 0;
 	// console.log(image);
 	this.elem.fullpage({
 
@@ -14,12 +14,14 @@ var H5Loading = function (image) {
 		var img = new Image();
 		// debugger;
 		img.onload = function () {
-			count ++;
-			$(".loading-per").html(parseInt(count/image.length *100)+"%");
+			loaded ++;
+			$(".loading-per").html(parseInt(loaded/image.length *100)+"%");
 			// console.log(parseInt(count/image.length *100)+"%");
 			// debugger;
-			if (count === image.length) {
-				$(".h5").show();			
+			if (loaded === image.length) {
+				setTimeout(function () {
+					$(".h5").show();
+				}, 2000);			
 			}
 
 		};
