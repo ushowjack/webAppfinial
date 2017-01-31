@@ -12,7 +12,7 @@ var H5Loading = function (image) {
 			// debugger;
 			if (loaded === image.length) {
 				setTimeout(function () {
-					$(".h5")fullpage({
+					$(".h5").fullpage({
 
 						onLeave:function (index,nextIndex,direction) {
 							$(this).find(".h5_component").trigger('onLeave');
