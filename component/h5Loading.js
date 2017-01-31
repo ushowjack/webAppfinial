@@ -1,6 +1,15 @@
 var H5Loading = function (image) {
 	var loaded = 0;
 	// console.log(image);
+	$(".h5").fullpage({
+
+		onLeave:function (index,nextIndex,direction) {
+			$(this).find(".h5_component").trigger('onLeave');
+		},
+		afterLoad:function (anchorLink,index) {
+			$(this).find(".h5_component").trigger('onLoad');
+		}
+	});	
 
 	for(var i = 0; i < image.length; i++){
 		var img = new Image();
@@ -11,15 +20,6 @@ var H5Loading = function (image) {
 			// console.log(parseInt(count/image.length *100)+"%");
 			// debugger;
 			if (loaded === image.length) {
-				$(".h5").fullpage({
-
-					onLeave:function (index,nextIndex,direction) {
-						$(this).find(".h5_component").trigger('onLeave');
-					},
-					afterLoad:function (anchorLink,index) {
-						$(this).find(".h5_component").trigger('onLoad');
-					}
-				});	
 				setTimeout(function () {
 
 					$(".h5").show();
