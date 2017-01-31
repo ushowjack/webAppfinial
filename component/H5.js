@@ -68,22 +68,22 @@ var H5 = function () {
 	this.loader = function (image) {
 
 		if ( typeof H5Loading === "function") {
-			H5Loading(image);
-			// return this;
+			H5Loading.apply(this,arguments);
+			return this;
 		}
 
-		this.elem.fullpage({
+		// this.elem.fullpage({
 
-			onLeave:function (index,nextIndex,direction) {
-				$(this).find(".h5_component").trigger('onLeave');
-			},
-			afterLoad:function (anchorLink,index) {
-				$(this).find(".h5_component").trigger('onLoad');
-			}
-		});	
+		// 	onLeave:function (index,nextIndex,direction) {
+		// 		$(this).find(".h5_component").trigger('onLeave');
+		// 	},
+		// 	afterLoad:function (anchorLink,index) {
+		// 		$(this).find(".h5_component").trigger('onLoad');
+		// 	}
+		// });	
 
 		// this.elem指的是h5的DOM本身
-		this.elem.show();
+		// this.elem.show();
 		// if (page) {
 		// 	$.fn.fullpage.moveTo(page);
 		// }
