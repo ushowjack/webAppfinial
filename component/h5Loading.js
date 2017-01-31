@@ -1,7 +1,7 @@
 var H5Loading = function (image) {
 	var loaded = 0;
 	// console.log(image);
-	$(".h5").fullpage({
+	this.elem.fullpage({
 
 		onLeave:function (index,nextIndex,direction) {
 			$(this).find(".h5_component").trigger('onLeave');
@@ -10,7 +10,6 @@ var H5Loading = function (image) {
 			$(this).find(".h5_component").trigger('onLoad');
 		}
 	});	
-
 	for(var i = 0; i < image.length; i++){
 		var img = new Image();
 		// debugger;
@@ -21,7 +20,6 @@ var H5Loading = function (image) {
 			// debugger;
 			if (loaded === image.length) {
 				setTimeout(function () {
-
 					$(".h5").show();
 				}, 2000);			
 			}
