@@ -69,7 +69,6 @@ var H5 = function () {
 
 		if ( typeof H5Loading === "function") {
 			H5Loading(image);
-			debugger;
 			// return this;
 		}
 
