@@ -11,16 +11,17 @@ var H5Loading = function (image) {
 			// console.log(parseInt(count/image.length *100)+"%");
 			// debugger;
 			if (loaded === image.length) {
-				setTimeout(function () {
-					$(".h5").fullpage({
+				$(".h5").fullpage({
 
-						onLeave:function (index,nextIndex,direction) {
-							$(this).find(".h5_component").trigger('onLeave');
-						},
-						afterLoad:function (anchorLink,index) {
-							$(this).find(".h5_component").trigger('onLoad');
-						}
-					});	
+					onLeave:function (index,nextIndex,direction) {
+						$(this).find(".h5_component").trigger('onLeave');
+					},
+					afterLoad:function (anchorLink,index) {
+						$(this).find(".h5_component").trigger('onLoad');
+					}
+				});	
+				setTimeout(function () {
+
 					$(".h5").show();
 				}, 2000);			
 			}
